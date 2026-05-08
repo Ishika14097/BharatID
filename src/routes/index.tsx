@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   IdCard,
   ShieldCheck,
@@ -119,12 +119,20 @@ function Index() {
             <a href="#pillars" className="hover:text-gold transition-colors">Principles</a>
             <a href="#pitch" className="hover:text-gold transition-colors">Pitch</a>
           </nav>
-          <a
-            href="#pitch"
-            className="hidden rounded-full bg-gold px-5 py-2 text-sm font-medium text-gold-foreground shadow-[var(--shadow-gold)] transition hover:brightness-110 md:inline-block"
-          >
-            Read the pitch
-          </a>
+          <div className="hidden items-center gap-4 md:flex">
+            <a
+              href="#pitch"
+              className="text-sm font-medium text-primary-foreground/80 hover:text-gold transition-colors"
+            >
+              Read the pitch
+            </a>
+            <Link
+              to="/login"
+              className="rounded-full bg-gold px-5 py-2 text-sm font-medium text-gold-foreground shadow-[var(--shadow-gold)] transition hover:brightness-110"
+            >
+              Sign In
+            </Link>
+          </div>
         </div>
       </header>
 
