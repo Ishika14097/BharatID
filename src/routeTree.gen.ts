@@ -9,13 +9,61 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VerifyQrRouteImport } from './routes/verify-qr'
+import { Route as UploadRouteImport } from './routes/upload'
+import { Route as SharedAccessRouteImport } from './routes/shared-access'
+import { Route as SecurityRouteImport } from './routes/security'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ConsistencyCheckerRouteImport } from './routes/consistency-checker'
+import { Route as AutofillRouteImport } from './routes/autofill'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardAadharIdRouteImport } from './routes/dashboard.$aadharId'
 
+const VerifyQrRoute = VerifyQrRouteImport.update({
+  id: '/verify-qr',
+  path: '/verify-qr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UploadRoute = UploadRouteImport.update({
+  id: '/upload',
+  path: '/upload',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SharedAccessRoute = SharedAccessRouteImport.update({
+  id: '/shared-access',
+  path: '/shared-access',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConsistencyCheckerRoute = ConsistencyCheckerRouteImport.update({
+  id: '/consistency-checker',
+  path: '/consistency-checker',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutofillRoute = AutofillRouteImport.update({
+  id: '/autofill',
+  path: '/autofill',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -24,48 +72,169 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardAadharIdRoute = DashboardAadharIdRouteImport.update({
-  id: '/dashboard/$aadharId',
-  path: '/dashboard/$aadharId',
-  getParentRoute: () => rootRouteImport,
+  id: '/$aadharId',
+  path: '/$aadharId',
+  getParentRoute: () => DashboardRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/autofill': typeof AutofillRoute
+  '/consistency-checker': typeof ConsistencyCheckerRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/documents': typeof DocumentsRoute
   '/login': typeof LoginRoute
+  '/security': typeof SecurityRoute
+  '/shared-access': typeof SharedAccessRoute
+  '/upload': typeof UploadRoute
+  '/verify-qr': typeof VerifyQrRoute
   '/dashboard/$aadharId': typeof DashboardAadharIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/autofill': typeof AutofillRoute
+  '/consistency-checker': typeof ConsistencyCheckerRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/documents': typeof DocumentsRoute
   '/login': typeof LoginRoute
+  '/security': typeof SecurityRoute
+  '/shared-access': typeof SharedAccessRoute
+  '/upload': typeof UploadRoute
+  '/verify-qr': typeof VerifyQrRoute
   '/dashboard/$aadharId': typeof DashboardAadharIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/autofill': typeof AutofillRoute
+  '/consistency-checker': typeof ConsistencyCheckerRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/documents': typeof DocumentsRoute
   '/login': typeof LoginRoute
+  '/security': typeof SecurityRoute
+  '/shared-access': typeof SharedAccessRoute
+  '/upload': typeof UploadRoute
+  '/verify-qr': typeof VerifyQrRoute
   '/dashboard/$aadharId': typeof DashboardAadharIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/dashboard/$aadharId'
+  fullPaths:
+    | '/'
+    | '/autofill'
+    | '/consistency-checker'
+    | '/dashboard'
+    | '/documents'
+    | '/login'
+    | '/security'
+    | '/shared-access'
+    | '/upload'
+    | '/verify-qr'
+    | '/dashboard/$aadharId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/dashboard/$aadharId'
-  id: '__root__' | '/' | '/login' | '/dashboard/$aadharId'
+  to:
+    | '/'
+    | '/autofill'
+    | '/consistency-checker'
+    | '/dashboard'
+    | '/documents'
+    | '/login'
+    | '/security'
+    | '/shared-access'
+    | '/upload'
+    | '/verify-qr'
+    | '/dashboard/$aadharId'
+  id:
+    | '__root__'
+    | '/'
+    | '/autofill'
+    | '/consistency-checker'
+    | '/dashboard'
+    | '/documents'
+    | '/login'
+    | '/security'
+    | '/shared-access'
+    | '/upload'
+    | '/verify-qr'
+    | '/dashboard/$aadharId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AutofillRoute: typeof AutofillRoute
+  ConsistencyCheckerRoute: typeof ConsistencyCheckerRoute
+  DashboardRoute: typeof DashboardRouteWithChildren
+  DocumentsRoute: typeof DocumentsRoute
   LoginRoute: typeof LoginRoute
-  DashboardAadharIdRoute: typeof DashboardAadharIdRoute
+  SecurityRoute: typeof SecurityRoute
+  SharedAccessRoute: typeof SharedAccessRoute
+  UploadRoute: typeof UploadRoute
+  VerifyQrRoute: typeof VerifyQrRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/verify-qr': {
+      id: '/verify-qr'
+      path: '/verify-qr'
+      fullPath: '/verify-qr'
+      preLoaderRoute: typeof VerifyQrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upload': {
+      id: '/upload'
+      path: '/upload'
+      fullPath: '/upload'
+      preLoaderRoute: typeof UploadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shared-access': {
+      id: '/shared-access'
+      path: '/shared-access'
+      fullPath: '/shared-access'
+      preLoaderRoute: typeof SharedAccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consistency-checker': {
+      id: '/consistency-checker'
+      path: '/consistency-checker'
+      fullPath: '/consistency-checker'
+      preLoaderRoute: typeof ConsistencyCheckerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/autofill': {
+      id: '/autofill'
+      path: '/autofill'
+      fullPath: '/autofill'
+      preLoaderRoute: typeof AutofillRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -77,18 +246,37 @@ declare module '@tanstack/react-router' {
     }
     '/dashboard/$aadharId': {
       id: '/dashboard/$aadharId'
-      path: '/dashboard/$aadharId'
+      path: '/$aadharId'
       fullPath: '/dashboard/$aadharId'
       preLoaderRoute: typeof DashboardAadharIdRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof DashboardRoute
     }
   }
 }
 
+interface DashboardRouteChildren {
+  DashboardAadharIdRoute: typeof DashboardAadharIdRoute
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardAadharIdRoute: DashboardAadharIdRoute,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AutofillRoute: AutofillRoute,
+  ConsistencyCheckerRoute: ConsistencyCheckerRoute,
+  DashboardRoute: DashboardRouteWithChildren,
+  DocumentsRoute: DocumentsRoute,
   LoginRoute: LoginRoute,
-  DashboardAadharIdRoute: DashboardAadharIdRoute,
+  SecurityRoute: SecurityRoute,
+  SharedAccessRoute: SharedAccessRoute,
+  UploadRoute: UploadRoute,
+  VerifyQrRoute: VerifyQrRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

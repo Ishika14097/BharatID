@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Bharat ID — Ek Desh, Ek Pehchaan" },
+      { name: "description", content: "India's unified government identity platform. One vault for Aadhaar, PAN, Voter ID, Passport and more — secure, consent-first, built for every Indian." },
+      { name: "author", content: "Bharat ID" },
+      { property: "og:title", content: "Bharat ID — Ek Desh, Ek Pehchaan" },
+      { property: "og:description", content: "One identity. Every document. Zero friction. India's trusted government ID simplification platform." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@BharatID" },
     ],
     links: [
       {

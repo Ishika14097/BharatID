@@ -13,22 +13,25 @@ import {
   Lock,
   Languages,
   Cpu,
+  CheckCircle2,
+  Shield,
+  Globe,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "EkID — One Identity. Every Document. Zero Friction." },
+      { title: "Bharat ID — Ek Desh, Ek Pehchaan" },
       {
         name: "description",
         content:
-          "A hackathon pitch for simplifying India's government IDs: a unified, AI-powered, consent-first identity layer for Aadhaar, PAN, Voter ID, Passport and more.",
+          "India's unified government identity platform. One secure vault for Aadhaar, PAN, Voter ID, Passport and more — consent-first, AI-powered, built for every Indian.",
       },
-      { property: "og:title", content: "EkID — Unified Government Identity" },
+      { property: "og:title", content: "Bharat ID — One Nation, One Identity" },
       {
         property: "og:description",
         content:
-          "8 painful gaps in India's identity stack. One elegant, consent-first solution. Built for Bharat.",
+          "Simplifying India's government IDs for 1.4 billion citizens. Secure, accessible, and built for Bharat.",
       },
     ],
   }),
@@ -105,30 +108,33 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
-      <header className="absolute top-0 left-0 right-0 z-30">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-          <a href="#top" className="flex items-center gap-2 text-primary-foreground">
-            <span className="grid h-9 w-9 place-items-center rounded-md bg-gold text-gold-foreground font-display text-lg font-bold">
-              ē
-            </span>
-            <span className="font-display text-lg font-semibold tracking-tight">EkID</span>
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a href="#top" className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
+              <span className="font-display text-lg font-bold text-primary-foreground">भ</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-display text-base font-semibold tracking-tight text-foreground">Bharat ID</span>
+              <span className="text-xs text-muted-foreground">Ek Desh, Ek Pehchaan</span>
+            </div>
           </a>
-          <nav className="hidden items-center gap-8 text-sm text-primary-foreground/80 md:flex">
-            <a href="#gaps" className="hover:text-gold transition-colors">The Gaps</a>
-            <a href="#solution" className="hover:text-gold transition-colors">Solution</a>
-            <a href="#pillars" className="hover:text-gold transition-colors">Principles</a>
-            <a href="#pitch" className="hover:text-gold transition-colors">Pitch</a>
+          <nav className="hidden items-center gap-8 text-sm font-medium text-foreground/70 md:flex">
+            <a href="#gaps" className="transition hover:text-primary">The Problem</a>
+            <a href="#solution" className="transition hover:text-primary">Our Solution</a>
+            <a href="#pillars" className="transition hover:text-primary">Principles</a>
+            <a href="#pitch" className="transition hover:text-primary">Our Mission</a>
           </nav>
-          <div className="hidden items-center gap-4 md:flex">
+          <div className="hidden items-center gap-3 md:flex">
             <a
-              href="#pitch"
-              className="text-sm font-medium text-primary-foreground/80 hover:text-gold transition-colors"
+              href="#solution"
+              className="text-sm font-medium text-foreground/60 transition hover:text-primary"
             >
-              Read the pitch
+              How it works
             </a>
             <Link
               to="/login"
-              className="rounded-full bg-gold px-5 py-2 text-sm font-medium text-gold-foreground shadow-[var(--shadow-gold)] transition hover:brightness-110"
+              className="rounded-lg bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
             >
               Sign In
             </Link>
@@ -137,128 +143,161 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section id="top" className="bg-hero relative overflow-hidden text-primary-foreground">
-        <div className="grain-overlay absolute inset-0 opacity-[0.18] mix-blend-overlay pointer-events-none" />
-        <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 pt-40 pb-32 lg:grid-cols-12 lg:pt-48 lg:pb-40">
-          <div className="lg:col-span-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-gold">
-              <Sparkles className="h-3.5 w-3.5" /> Hackathon Pitch · Government ID Simplification
+      <section id="top" className="relative border-b border-border bg-gradient-to-b from-blue-50 via-background to-background pt-24">
+        <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-12 lg:py-28">
+          <div className="lg:col-span-7 lg:pr-8">
+            <div className="inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/5 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-primary">
+              <Shield className="h-3.5 w-3.5" /> Official Government Identity Platform
             </div>
-            <h1 className="mt-8 font-display text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-[5.5rem]">
-              One identity.{" "}
-              <span className="text-gradient-gold">Every document.</span>{" "}
-              Zero friction.
+            <h1 className="mt-8 font-display text-5xl font-bold leading-tight tracking-tight text-foreground sm:text-6xl lg:text-[3.75rem]">
+              One Identity. <span className="text-primary">Every Document.</span> <span className="text-primary/80">Zero Friction.</span>
             </h1>
-            <p className="mt-8 max-w-2xl text-lg text-primary-foreground/75 sm:text-xl">
-              India runs on a dozen government IDs that don't talk to each other. <strong className="text-primary-foreground">EkID</strong> is a consent-first, AI-powered identity layer that unifies them — for citizens, not portals.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-foreground/70">
+              Bharat ID unifies Aadhaar, PAN, Voter ID, Passport and more into a single, secure, consent-first vault. Built for 1.4 billion citizens. Designed for every Indian, from Kashmir to Kanyakumari.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href="#gaps"
-                className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 font-medium text-gold-foreground shadow-[var(--shadow-gold)] transition hover:brightness-110"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:bg-primary/90"
               >
-                See the 8 gaps <ArrowRight className="h-4 w-4" />
+                Understand the Problem <ArrowRight className="h-4 w-4" />
               </a>
-              <a
-                href="#solution"
-                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 px-7 py-3.5 font-medium text-primary-foreground transition hover:bg-primary-foreground/10"
+              <Link
+                to="/login"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 font-medium text-foreground transition hover:bg-accent"
               >
-                How it works
-              </a>
+                Get Started
+              </Link>
+            </div>
+            
+            {/* Stats */}
+            <div className="mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8">
+              <div>
+                <div className="font-display text-2xl font-bold text-primary">1.4B</div>
+                <div className="text-xs text-foreground/60 mt-1">Citizens Served</div>
+              </div>
+              <div>
+                <div className="font-display text-2xl font-bold text-primary">12+</div>
+                <div className="text-xs text-foreground/60 mt-1">Core Identity Types</div>
+              </div>
+              <div>
+                <div className="font-display text-2xl font-bold text-primary">1</div>
+                <div className="text-xs text-foreground/60 mt-1">Unified Vault</div>
+              </div>
             </div>
           </div>
 
-          <div className="lg:col-span-4 lg:pt-6">
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                { k: "1.4B", v: "citizens" },
-                { k: "12+", v: "core IDs" },
-                { k: "0", v: "interoperability" },
-                { k: "1", v: "vault to fix it" },
-              ].map((s) => (
-                <div
-                  key={s.v}
-                  className="rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-5 backdrop-blur"
-                >
-                  <div className="font-display text-3xl text-gold">{s.k}</div>
-                  <div className="mt-1 text-sm text-primary-foreground/70">{s.v}</div>
+          <div className="lg:col-span-5">
+            <div className="rounded-xl border border-border bg-white p-8 shadow-sm">
+              <div className="flex items-center gap-3 pb-4 border-b border-border">
+                <div className="h-2.5 w-2.5 rounded-full bg-green-500"></div>
+                <span className="text-sm font-semibold text-foreground">Official Government Platform</span>
+              </div>
+              <div className="mt-6 space-y-5">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-medium text-foreground">Aadhaar Integrated</div>
+                    <div className="text-xs text-foreground/60 mt-1">Seamless DigiLocker integration</div>
+                  </div>
                 </div>
-              ))}
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-medium text-foreground">Consent-First</div>
+                    <div className="text-xs text-foreground/60 mt-1">Every share is explicit & auditable</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-medium text-foreground">End-to-End Secure</div>
+                    <div className="text-xs text-foreground/60 mt-1">Military-grade encryption</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <div className="font-medium text-foreground">Multilingual Support</div>
+                    <div className="text-xs text-foreground/60 mt-1">Voice, vernacular & accessible</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* GAPS */}
-      <section id="gaps" className="mx-auto max-w-7xl px-6 py-28">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <div className="text-xs uppercase tracking-[0.25em] text-secondary">The problem space</div>
-            <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
-              Eight gaps citizens feel <span className="text-gradient-gold">every single week.</span>
+      <section id="gaps" className="border-b border-border bg-background">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mb-12">
+            <div className="text-xs font-semibold uppercase tracking-widest text-primary/70">The Problem</div>
+            <h2 className="mt-3 font-display text-4xl font-bold text-foreground sm:text-5xl">
+              Eight gaps every Indian citizen faces
             </h2>
+            <p className="mt-4 max-w-2xl text-lg text-foreground/60">
+              India's fragmented identity system wastes crores of hours and denies millions access to services they deserve. Bharat ID addresses every challenge.
+            </p>
           </div>
-          <p className="max-w-md text-muted-foreground">
-            Each one is a real, recurring failure of India's identity stack — and a hackathon-sized opportunity. Together, they form one product.
-          </p>
-        </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {gaps.map((g) => (
-            <article
-              key={g.tag}
-              className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition hover:border-secondary/40 hover:shadow-[var(--shadow-elegant)]"
-            >
-              <div className="flex items-center justify-between">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary text-primary-foreground transition group-hover:bg-secondary">
-                  <g.icon className="h-5 w-5" />
-                </span>
-                <span className="font-display text-xs tracking-[0.2em] text-gold">{g.tag}</span>
-              </div>
-              <h3 className="mt-5 font-display text-xl font-semibold leading-snug">{g.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{g.body}</p>
-              <div className="mt-5 border-t border-dashed border-border pt-4 text-sm">
-                <span className="font-medium text-secondary">Our take · </span>
-                <span className="text-foreground/80">{g.solution}</span>
-              </div>
-            </article>
-          ))}
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {gaps.map((g) => (
+              <article
+                key={g.tag}
+                className="group rounded-xl border border-border bg-white p-6 transition hover:border-primary/30 hover:shadow-md"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition">
+                    <g.icon className="h-5 w-5" />
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wide text-primary/70">{g.tag}</span>
+                </div>
+                <h3 className="font-display text-base font-bold leading-snug text-foreground">{g.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/60">{g.body}</p>
+                <div className="mt-4 border-t border-border pt-3 text-xs">
+                  <span className="font-semibold text-primary">Solution · </span>
+                  <span className="text-foreground/70">{g.solution}</span>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* SOLUTION */}
-      <section id="solution" className="bg-primary text-primary-foreground">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-28 lg:grid-cols-12">
+      <section id="solution" className="border-b border-border bg-gradient-to-b from-blue-900 via-slate-900 to-slate-950 text-slate-50">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-20 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <div className="text-xs uppercase tracking-[0.25em] text-gold">The solution</div>
-            <h2 className="mt-4 font-display text-4xl font-semibold sm:text-5xl">
-              EkID is the <span className="text-gradient-gold">missing layer</span> between citizens and the State.
+            <div className="text-xs font-semibold uppercase tracking-widest text-blue-200">Our Solution</div>
+            <h2 className="mt-3 font-display text-4xl font-bold sm:text-5xl">
+              The Bridge Every Indian Deserves
             </h2>
-            <p className="mt-6 text-primary-foreground/75">
-              A single, secure, consent-driven vault that knows every ID you own, keeps them in sync, and lets you share verified facts — not photocopies — with anyone who asks.
+            <p className="mt-6 text-slate-300 leading-relaxed">
+              A single, secure, consent-driven vault that knows every ID you own, keeps them in sync, and lets you share verified facts — not photocopies — with any service that asks.
             </p>
             <a
-              href="#pitch"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 font-medium text-gold-foreground shadow-[var(--shadow-gold)] transition hover:brightness-110"
+              href="#pillars"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-slate-900 transition hover:bg-slate-100"
             >
-              Why judges will love it <ArrowRight className="h-4 w-4" />
+              Our Core Principles <ArrowRight className="h-4 w-4" />
             </a>
           </div>
 
           <div className="lg:col-span-7">
-            <ol className="relative space-y-6 border-l border-gold/30 pl-8">
+            <ol className="relative space-y-8 border-l-2 border-blue-400/30 pl-8">
               {[
-                { t: "Onboard once", d: "Sign in with Aadhaar OTP or DigiLocker. EkID pulls verified IDs you already own." },
-                { t: "Vault & reconcile", d: "We detect mismatches across documents and propose corrections with an AI consistency engine." },
-                { t: "Share with consent", d: "Any portal, college or landlord requests verified facts via QR — you approve, scoped + time-bound." },
-                { t: "Update everywhere", d: "Change your address once. EkID fans the update out to every linked agency and tracks status live." },
+                { t: "Secure Onboarding", d: "Sign in with Aadhaar OTP or DigiLocker. Bharat ID securely fetches all verified IDs you already own." },
+                { t: "AI-Powered Reconciliation", d: "We detect mismatches across your documents and propose corrections using our AI consistency engine." },
+                { t: "Explicit Consent Sharing", d: "Any portal, bank or employer requests verified facts via QR — you approve, scoped and time-bound." },
+                { t: "Synchronized Updates", d: "Change your address once. Bharat ID fans the update out to every linked agency and tracks status live." },
               ].map((s, i) => (
                 <li key={s.t} className="relative">
-                  <span className="absolute -left-[42px] grid h-8 w-8 place-items-center rounded-full bg-gold font-display text-sm font-semibold text-gold-foreground">
+                  <span className="absolute -left-[50px] flex h-10 w-10 items-center justify-center rounded-full bg-blue-400 font-display font-bold text-slate-950">
                     {i + 1}
                   </span>
-                  <h3 className="font-display text-xl">{s.t}</h3>
-                  <p className="mt-1 text-primary-foreground/70">{s.d}</p>
+                  <h3 className="font-display text-xl font-semibold">{s.t}</h3>
+                  <p className="mt-2 text-slate-300 leading-relaxed">{s.d}</p>
                 </li>
               ))}
             </ol>
@@ -267,63 +306,91 @@ function Index() {
       </section>
 
       {/* PILLARS */}
-      <section id="pillars" className="mx-auto max-w-7xl px-6 py-28">
-        <div className="text-xs uppercase tracking-[0.25em] text-secondary">Principles</div>
-        <h2 className="mt-4 max-w-3xl font-display text-4xl font-semibold sm:text-5xl">
-          Four non-negotiables that shape every screen.
-        </h2>
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {pillars.map((p) => (
-            <div key={p.title} className="rounded-2xl border border-border bg-cream p-7">
-              <span className="grid h-12 w-12 place-items-center rounded-xl bg-gold/20 text-secondary">
-                <p.icon className="h-6 w-6" />
-              </span>
-              <h3 className="mt-5 font-display text-xl font-semibold">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{p.body}</p>
-            </div>
-          ))}
+      <section id="pillars" className="border-b border-border bg-background">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mb-12">
+            <div className="text-xs font-semibold uppercase tracking-widest text-primary/70">Core Principles</div>
+            <h2 className="mt-3 font-display text-4xl font-bold text-foreground sm:text-5xl">
+              Four commitments to every Indian citizen
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {pillars.map((p) => (
+              <div key={p.title} className="rounded-xl border border-border bg-white p-7 transition hover:shadow-md">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <p.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 font-display text-lg font-bold text-foreground">{p.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/60">{p.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* PITCH / CTA */}
-      <section id="pitch" className="bg-hero relative overflow-hidden text-primary-foreground">
-        <div className="grain-overlay absolute inset-0 opacity-[0.18] mix-blend-overlay pointer-events-none" />
-        <div className="relative mx-auto max-w-5xl px-6 py-28 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-gold">
-            <Sparkles className="h-3.5 w-3.5" /> The 30-second pitch
+      {/* MISSION / CTA */}
+      <section id="pitch" className="relative border-b border-border bg-gradient-to-b from-slate-900 to-slate-950 text-slate-50">
+        <div className="relative mx-auto max-w-4xl px-6 py-24 text-center">
+          <div className="inline-flex items-center gap-2 rounded-lg border border-blue-400/30 bg-blue-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-blue-200">
+            <Globe className="h-3.5 w-3.5" /> National Mission
           </div>
-          <h2 className="mt-8 font-display text-4xl font-semibold leading-tight sm:text-6xl">
-            “India built world-class IDs.{" "}
-            <span className="text-gradient-gold">EkID makes them feel like one.”</span>
+          <h2 className="mt-8 font-display text-4xl font-bold leading-tight sm:text-5xl">
+            India built world-class IDs. <span className="text-blue-300">Bharat ID makes them feel like one.</span>
           </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-lg text-primary-foreground/75">
-            Real public impact · AI-powered · Privacy-first · Multilingual · Accessible · Built for the next billion.
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-slate-300">
+            Serving 1.4 billion citizens · AI-powered · Privacy-first · Multilingual · Accessible · Built for the next billion.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="#gaps"
-              className="inline-flex items-center gap-2 rounded-full bg-gold px-7 py-3.5 font-medium text-gold-foreground shadow-[var(--shadow-gold)] transition hover:brightness-110"
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/login"
+              className="inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3 font-medium text-slate-900 transition hover:bg-slate-100"
             >
-              Revisit the gaps <ArrowRight className="h-4 w-4" />
-            </a>
+              Get Started <ArrowRight className="h-4 w-4" />
+            </Link>
             <a
               href="#top"
-              className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 px-7 py-3.5 font-medium transition hover:bg-primary-foreground/10"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-400/30 px-7 py-3 font-medium transition hover:bg-slate-400/10"
             >
-              Back to top
+              Back to Top
             </a>
           </div>
         </div>
       </section>
 
-      <footer className="bg-primary text-primary-foreground/70">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm md:flex-row">
-          <div className="flex items-center gap-2">
-            <span className="grid h-7 w-7 place-items-center rounded-md bg-gold text-gold-foreground font-display text-sm font-bold">ē</span>
-            <span className="font-display text-base text-primary-foreground">EkID</span>
-            <span className="ml-3">· A hackathon concept for simplifying government identity.</span>
+      {/* FOOTER */}
+      <footer className="bg-slate-950 text-slate-400 border-t border-slate-800">
+        <div className="mx-auto max-w-7xl px-6 py-12">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+                  <span className="font-display text-sm font-bold text-primary-foreground">भ</span>
+                </div>
+                <span className="font-display font-semibold text-slate-100">Bharat ID</span>
+              </div>
+              <p className="text-sm text-slate-400">Ek Desh, Ek Pehchaan — India's unified government identity platform.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-slate-100 text-sm mb-4">About</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#gaps" className="hover:text-slate-200 transition">The Problem</a></li>
+                <li><a href="#solution" className="hover:text-slate-200 transition">Our Solution</a></li>
+                <li><a href="#pillars" className="hover:text-slate-200 transition">Our Principles</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-slate-100 text-sm mb-4">Security</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-slate-200 transition">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-slate-200 transition">Security Standards</a></li>
+                <li><a href="#" className="hover:text-slate-200 transition">Compliance</a></li>
+              </ul>
+            </div>
           </div>
-          <div>© {new Date().getFullYear()} EkID team</div>
+          <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between text-sm">
+            <div>© {new Date().getFullYear()} Bharat ID · Serving Every Indian Citizen</div>
+            <div className="mt-4 md:mt-0">Developed with commitment to Indian citizens</div>
+          </div>
         </div>
       </footer>
     </div>
